@@ -1,0 +1,235 @@
+{
+  "main": {
+    "id": "1b5f3fcba900c12c",
+    "type": "split",
+    "children": [
+      {
+        "id": "63cda17c7ad4596f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3a85772cc84fada9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Wiki/02-相关工作/论文精读/Code as Policies.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Code as Policies"
+            }
+          },
+          {
+            "id": "4c0d7111df2834fa",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Source/Papers/code-as-policies-2209.07753.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "code-as-policies-2209.07753"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "634c682039919f5f",
+    "type": "split",
+    "children": [
+      {
+        "id": "863f15159c289784",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9932ede4c409b619",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6fcdf3bf2387f3f1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "632cf467bb67af14",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f705f12889865350",
+    "type": "split",
+    "children": [
+      {
+        "id": "e8a9d66a1199b445",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e698291927924c05",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Wiki/02-相关工作/论文精读/Code as Policies.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Code as Policies"
+            }
+          },
+          {
+            "id": "6840c815f53756c5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Wiki/02-相关工作/论文精读/Code as Policies.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Code as Policies"
+            }
+          },
+          {
+            "id": "aa88fd091d1a2768",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "5c1dd3ff7629c48a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "e63f852fbe7c1366",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Wiki/02-相关工作/论文精读/Code as Policies.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Code as Policies"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "3a85772cc84fada9",
+  "lastOpenFiles": [
+    "Wiki/02-相关工作/论文精读/LIBERO.md",
+    "Wiki/02-相关工作/论文精读/NRTrans.md",
+    "Wiki/02-相关工作/论文精读/RT-2.md",
+    "Wiki/02-相关工作/论文精读/VoxPoser.md",
+    "Wiki/02-相关工作/论文精读/OpenVLA.md",
+    "Wiki/02-相关工作/VLA路线.md",
+    "Wiki/02-相关工作/LLM规划与代码生成.md",
+    "Wiki/02-相关工作/论文精读/RoboCasa.md",
+    "Wiki/02-相关工作/论文精读/Code as Policies.md",
+    "Wiki/00-总览/论文入库工作流.md",
+    "Source/Papers/code-as-policies-2209.07753.pdf",
+    "Wiki/02-相关工作/Benchmark与实验平台.md",
+    "Wiki/02-相关工作/相关工作地图.md",
+    "Wiki/02-相关工作/安全验证与机器人DSL.md",
+    "Wiki/02-相关工作/论文精读/Voyager.md",
+    "Source/Papers/voyager-2305.16291.pdf",
+    "Wiki/02-相关工作/论文精读/AlphaEvolve.md",
+    "Source/Papers/nrtrans-2508.19074.pdf",
+    "Source/Papers/openvla-2406.09246.pdf",
+    "Source/Main Idea/机器人自我进化架构.md",
+    "Wiki/03-研究判断/可行性与边界.md",
+    "Wiki/02-相关工作/论文精读/SayCan.md",
+    "Wiki/01-核心概念/执行反馈自调试.md",
+    "Source/Papers/voxposer-2307.05973.pdf",
+    "tmp/paper_texts/voyager-2305.16291.txt",
+    "tmp/paper_texts/voxposer-2307.05973.txt",
+    "tmp/paper_texts/saycan-2204.01691.txt",
+    "tmp/paper_texts/rt-2-2307.15818.txt",
+    "tmp/paper_texts/robocasa-2406.02523.txt",
+    "AGENTS.md",
+    "LLM Wiki.md",
+    "log.md",
+    "index.md",
+    "Wiki/03-研究判断/研究切口与实验路线.md"
+  ]
+}

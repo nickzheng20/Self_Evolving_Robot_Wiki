@@ -1,0 +1,83 @@
+# 自进化代码Agent与评估器
+
+核心判断：“自进化”不能只靠 LLM 自我感觉良好；必须有可执行 evaluator。机器人系统的难点是 evaluator 不只运行单元测试，还要处理物理世界的多模态失败和安全约束。
+
+## Voyager
+
+[[voyager-2305.16291.pdf|Voyager]] 是本项目最重要的思想近邻之一。它在 Minecraft 中让 GPT-4 持续探索、写可执行代码、根据环境反馈和执行错误修复程序，并把成功行为存入 skill library。
+
+它给本项目的启发是：
+
+- skill 可以是可解释、可组合、可检索的代码。
+- 环境反馈可以驱动程序改进。
+- skill library 会复利，降低灾难性遗忘。
+
+但差异也很关键：Minecraft 的失败成本低，真实机器人有碰撞、力控、传感器噪声、物体破损和人类安全问题。因此本项目必须比 Voyager 多一个 [[Robot CI-CD与安全门]]。
+
+## Eureka
+
+[Eureka](https://arxiv.org/abs/2310.12931) 让 LLM 写 reward code，再用 RL 环境评估 reward 是否能学出好技能。它证明 coding agent 可以参与机器人学习，但它修改的是 reward，而不是直接部署到真实机器人的 skill implementation。
+
+对本项目的启发：
+
+- coding agent 可以承担“设计可优化目标”的角色。
+- evaluator 必须能给出明确分数。
+- 人类反馈可以作为安全和偏好修正。
+
+## AlphaEvolve
+
+[[alphaevolve-2506.13131.pdf|AlphaEvolve]] 是更通用的“代码进化”范式：LLM 修改算法代码，系统用一个或多个 evaluator 给候选代码评分，然后进行迭代优化。
+
+它给本项目的核心启发是：
+
+> 代码自进化的中心不是 prompt，而是 evaluator。
+
+如果把这个迁移到机器人，evaluator 应包括：
+
+- 成功率。
+- 平均尝试次数。
+- 安全违规次数。
+- 旧任务 regression rate。
+- 执行时间。
+- 人类介入时间。
+- 泛化到新物体/新位置/新光照的表现。
+
+## Self-debugging 与动态调试
+
+[Teaching Large Language Models to Self-Debug](https://arxiv.org/abs/2304.05128) 说明 LLM 可以利用执行反馈修复代码。
+
+[InspectCoder](https://arxiv.org/abs/2510.18327) 进一步强调动态分析：让 LLM 主动设置断点、检查中间状态、逐步定位根因。
+
+迁移到机器人时，对应的问题是：
+
+- 机器人系统能不能提供足够中间状态？
+- coding agent 能不能主动要求额外的仿真 probe？
+- failure trace 是否能定位到 perception、planning、control 或 verification 中的具体环节？
+
+## 机器人 evaluator 的特殊性
+
+普通代码 evaluator 通常是测试用例。机器人 evaluator 更复杂：
+
+- 单次执行有随机性。
+- 仿真和真实世界有 gap。
+- 失败可能有物理损伤风险。
+- 成功不是二值，可能有质量和安全程度。
+- 同一个 patch 可能修复 A 场景，却破坏 B 场景。
+
+因此，本项目的 evaluator 应是分层的：
+
+```text
+unit tests
+  -> simulation score
+  -> perturbation robustness
+  -> regression suite
+  -> safety monitor
+  -> limited real-world trials
+```
+
+只有这样的 evaluator，coding agent 的“自进化”才不是口号。
+
+## 已精读页面
+
+- [[Voyager]]：可执行代码 skill library、反馈修复和自验证。
+- [[AlphaEvolve]]：evaluator 驱动的代码进化范式。
