@@ -1,6 +1,6 @@
 # 自进化代码Agent与评估器
 
-核心判断：“自进化”不能只靠 LLM 自我感觉良好；必须有可执行 evaluator。机器人系统的难点是 evaluator 不只运行单元测试，还要处理物理世界的多模态失败和安全约束。
+核心判断：“自进化”不能只靠 LLM 自我感觉良好；必须有位于进化循环之外的可执行 evaluator。机器人系统的难点是 evaluator 不只运行单元测试，还要处理物理世界的多模态失败、安全约束和 harness-level 回归。
 
 ## Voyager
 
@@ -54,6 +54,27 @@
 - coding agent 能不能主动要求额外的仿真 probe？
 - failure trace 是否能定位到 perception、planning、control 或 verification 中的具体环节？
 
+## 从 Skill 进化到 Harness 进化
+
+[[Harness Engineering for Self-Improvement - 综述解读|Harness Engineering for Self-Improvement]] 把自进化对象从 solution code 扩展到模型周围的 harness code，包括 context、workflow、tool description、tool implementation、middleware、sub-agent 配置和 long-term memory。
+
+其中最值得迁移的不是“让 agent 任意修改自己”，而是 propose-evaluate-accept 协议：
+
+1. 用 verifier-grounded trace 聚类可重复 failure pattern。
+2. 只向 proposer 暴露明确可编辑面、必须保留的成功行为和过去被拒绝的 edit。
+3. 每个 edit 附带根因、目标组件、预期修复和可能回归。
+4. 同时运行 held-in 与 held-out tests，无回归才合并。
+5. verifier、tracer、模型配置、预算和权限系统保持只读。
+
+这也引出一个重要区分：
+
+- **Harness-updating**：agent 能否写出结构合理的修改。
+- **Harness-benefit**：运行时 planner 能否在正确状态使用修改后的 skill/tool，并提高完整任务表现。
+
+机器人实验不能只检查 patch 通过了单元测试，还要检查高层 planner 是否实际调用新 fallback，以及系统级收益是否在 held-out task 上成立。
+
+[[Harness VLA]] 则提供了另一侧证据：固定 primitive 和冻结 VLA 仅通过 planner、memory、re-grounding 与重试也能显著提升。因此后续 code-repair 实验必须把这种 fixed-harness improvement 作为 baseline，避免把 memory 或 retry 收益误称为 skill 自进化。
+
 ## 机器人 evaluator 的特殊性
 
 普通代码 evaluator 通常是测试用例。机器人 evaluator 更复杂：
@@ -81,3 +102,5 @@ unit tests
 
 - [[Voyager]]：可执行代码 skill library、反馈修复和自验证。
 - [[AlphaEvolve]]：evaluator 驱动的代码进化范式。
+- [[Harness Engineering for Self-Improvement - 综述解读|Harness Engineering for Self-Improvement]]：context、workflow、harness code 与 optimizer code 的自改进路线及可信边界。
+- [[Harness VLA]]：固定 primitive harness 如何在不改 VLA 权重或 skill 代码时提高机器人任务可靠性。

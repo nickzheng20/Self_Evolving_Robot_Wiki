@@ -14,20 +14,23 @@
 ## 核心概念
 
 - [[核心架构]]：任务大脑、skill registry、执行器、监控器、coding agent、验证门。
+- [[机器人Harness工程]]：包围 planner、VLA 与 skill 的运行时，以及可编辑工作区和只读可信内核。
 - [[执行反馈自调试]]：从真实或仿真失败 trace 到代码 patch 的闭环。
 - [[Robot CI-CD与安全门]]：机器人 skill 修改后的测试、验证、部署和回滚。
 
 ## 相关工作
 
 - [[相关工作地图]]：VLA、LLM 规划、代码生成、代码自进化、安全验证、benchmark 的总览。
-- [[VLA路线]]：RT-1/RT-2、Open X-Embodiment、OpenVLA、Octo、pi0、GR00T、Gemini Robotics 等。
+- [[VLA路线]]：端到端 VLA、冻结 VLA primitive 与 Harness VLA 混合路线。
 - [[LLM规划与代码生成]]：SayCan、Inner Monologue、ProgPrompt、Code as Policies、VoxPoser、LRLL。
-- [[自进化代码Agent与评估器]]：Voyager、Eureka、AlphaEvolve 等“代码 + 反馈 + evaluator”范式。
+- [[自进化代码Agent与评估器]]：Voyager、AlphaEvolve、Self-Harness、AHE 等“代码/harness + 反馈 + evaluator”范式。
 - [[安全验证与机器人DSL]]：NRTrans、SELP、SafePlan、LTLCodeGen、SAFER 等安全与形式化约束路线。
 - [[Benchmark与实验平台]]：LIBERO、CALVIN、RoboCasa/RoboCasa365、BEHAVIOR-1K、RoboLab 等。
 
-## 论文精读
+## 论文与来源精读
 
+- [[Harness VLA]]：冻结 VLA 作为可重试 contact primitive，配合 memory、解析控制和 planner re-grounding。
+- [[Harness Engineering for Self-Improvement - 综述解读|Harness Engineering for Self-Improvement]]：harness 自改进综述，以及 observability、权限和 verifier 边界。
 - [[Wiki/02-相关工作/论文精读/Code as Policies]]：LLM 生成机器人 policy code，是 coding agent 写 skill 的直接前作。
 - [[Voyager]]：可执行代码 skill library、环境反馈和自验证的 lifelong agent。
 - [[AlphaEvolve]]：代码自进化必须依赖 evaluator 的强参考。

@@ -27,3 +27,11 @@
 
 - 在 [[相关工作地图]] 中新增“核心阅读优先级”，按对“代码自进化 robot skill library”的直接贡献排序。
 - 将 [[Wiki/02-相关工作/论文精读/Code as Policies]]、[[Voyager]]、[[AlphaEvolve]]、[[NRTrans]]、[[SayCan]]、[[VoxPoser]]、[[LIBERO]] 和 VLA baseline 的角色区分写入 wiki。
+
+## [2026-07-27] ingest | 加入 Harness VLA 与 Harness Engineering
+
+- 入库 [[Harness VLA]]：将 PDF 规范命名为 `harness-vla-2607.08448.pdf`，抽取 39 页内容，整理固定 primitive interface、两类 memory、LIBERO/LIBERO-Pro、RoboCasa365 和 RoboTwin C2R 结果，并记录其 fixed-harness 与仿真边界。
+- 入库 [[Harness Engineering for Self-Improvement - 综述解读|Harness Engineering for Self-Improvement]]：明确该来源是 Lilian Weng 的综述博客，整理 context、workflow、self-harness、evolutionary search、observability 和可信 verifier 边界。
+- 新增 [[机器人Harness工程]]，把 planner、skill、memory、monitor、verifier 和权限系统统一为可观测运行时，同时区分受限可编辑工作区与只读安全内核。
+- 更新 [[核心架构]]、[[执行反馈自调试]]、[[Robot CI-CD与安全门]]、[[VLA路线]]、[[自进化代码Agent与评估器]]、[[相关工作地图]]、[[可行性与边界]] 和 [[研究切口与实验路线]]。
+- 将 Harness VLA-style fixed harness 加入实验 baseline，防止把 memory、re-grounding 或 retry 的收益误称为 skill code evolution。

@@ -20,10 +20,13 @@
 
 [Embodied-R1.5](https://arxiv.org/abs/2606.11324) 是 2026 年的新近工作，把 embodied cognition、task planning、correction 和 pointing 等能力统一到 embodied foundation model 中，说明“单模型内化具身能力”的路线仍在快速推进。
 
+[[Harness VLA]] 走了不同方向：不再要求 VLA 端到端承担整条轨迹，而是把冻结 VLA 封装成 `VLA_ACT` 接触丰富 primitive，由 agentic planner、两类 memory 和解析 primitive 负责语义重绑定、空间 staging、重试、运输与释放。论文在不微调 VLA 的情况下报告 LIBERO-Pro 82.4%、RoboCasa365 加权 55.4% 和 RoboTwin C2R 58.4% 的最好配置，说明部署可靠性也可以来自模型外的 [[机器人Harness工程|harness]]。
+
 ## 已精读页面
 
 - [[RT-2]]：动作 token 化和 web-scale VLM 知识迁移到控制。
 - [[OpenVLA]]：开源 7B VLA、Open X-Embodiment 训练和高效微调。
+- [[Harness VLA]]：冻结 VLA 作为可重试 contact primitive，配合解析控制、memory 和 planner re-grounding。
 
 ## VLA 的强项
 
@@ -48,11 +51,15 @@ VLA 失败后常见问题是：
 
 这正是 [[执行反馈自调试]] 和 [[Robot CI-CD与安全门]] 想补的地方。
 
+Harness VLA 进一步说明，上述一部分弱点可以在不改权重时缓解：semantic retargeting 和 position swap 可以由 planner 显式 re-ground，局部接触失败可以通过重新 staging 后再次调用 VLA 隔离。但它没有修改 primitive 代码，也没有真实硬件安全验证，因此不能替代本项目的程序修复与部署门。
+
 ## 和本项目的关系
 
 本项目不应该把 VLA 当成必须替代的对象。更合理的架构是：
 
 > VLA/learned policy 可以是某些 skill 的实现；coding agent 负责围绕 skill 增加约束、调用逻辑、fallback、测试、监控和版本化。
+
+更具体地说，learned skill 应像 `VLA_ACT` 一样具有结构化 schema、最大 action-chunk budget、early-return predicate、postcondition 和可观察结果。planner 可以重试它，coding agent 可以修改其外围 staging、检测和 fallback，但权重更新与代码更新必须分别评估。
 
 例如，`wipe_table` 可以由 diffusion policy 执行，但 skill 外层仍然可以有：
 

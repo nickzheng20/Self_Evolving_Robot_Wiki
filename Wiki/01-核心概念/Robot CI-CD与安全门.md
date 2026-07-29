@@ -55,6 +55,13 @@ Patch proposal
 
 例如修复透明杯 depth hole 后，必须确认普通杯、带柄杯、无柄杯、侧放杯的成功率没有明显下降。
 
+回归集应明确拆成两部分：
+
+- **Held-in tests**：包含触发当前 patch 的已知 failure，用于判断问题是否真的被修复。
+- **Held-out tests**：不进入 patch proposal context，用于检查未知回归、benchmark overfitting 和过度特化。
+
+只在 held-in 上变好不能进入部署门。候选 patch 应同时报告预期修复和 at-risk regressions。
+
 ### 5. 安全验证
 
 安全验证可以来自多层：
@@ -67,6 +74,18 @@ Patch proposal
 ### 6. 小范围真实机器人测试
 
 真实硬件测试应默认低速、低力、有人监督、受限工作空间，并记录完整 trace。通过后才允许扩大任务范围。
+
+## 进化循环之外的可信边界
+
+[[机器人Harness工程]] 要求把可编辑工作区和可信内核物理分开。coding agent 可以读取验证结果，但默认不能修改：
+
+- tracer 原始记录与历史失败。
+- verifier、held-out tests 和评分聚合逻辑。
+- 使用的基础模型、推理预算和工具权限。
+- 力、速度、碰撞、关节、工作空间与急停约束。
+- 真实硬件部署审批和 rollback controller。
+
+否则 agent 可以通过删除失败、关闭检查、增加预算或放宽安全阈值获得表面分数，无法判断所谓“进化”是否来自真正的 skill 改进。每次可编辑面变更也应记录 evidence、root-cause hypothesis、target component、expected impact 和可能回归。
 
 ## 版本化和回滚
 
