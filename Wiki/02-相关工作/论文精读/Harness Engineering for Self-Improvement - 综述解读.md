@@ -148,7 +148,7 @@ Self-Harness 的 proposal context 包含四类信息：当前可编辑面、基�
 | --- | --- | --- |
 | System prompt / workflow | 任务分解、失败归因与 repair loop | 可提案修改 |
 | Tool description | skill schema、precondition、postcondition | 可提案修改 |
-| Tool implementation | perception、planning、fallback、success detector | 受限可修改 |
+| Tool implementation | perception、planning、fallback、skill-local completion monitor | 受限可修改；外部 benchmark success predicate 不在此列 |
 | Middleware | primitive serialization、状态刷新、超时与重试 | 高风险，需额外审查 |
 | Long-term memory | 成功 trace、失败模型、patch 历史 | 可增量更新，需来源与失效规则 |
 | Tracer / verifier | 多模态记录、测试、评分与归因证据 | 只读 |

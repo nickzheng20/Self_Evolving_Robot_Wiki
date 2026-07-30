@@ -6,10 +6,12 @@
 
 - [[项目概览]]：一页读懂当前项目的核心想法、结构和研究定位。
 - [[核心架构]]：系统分层、数据流和 skill registry 的基本设计。
-- [[相关工作地图]]：把论文和资料按技术路线放到同一张地图里。
+- [[相关工作地图]]：把论文和资料按技术路线放到同一张地图里，并持续维护 ASPIRE/VASO 等直接近邻带来的 novelty 边界。
 - [[论文入库工作流]]：以后新增论文时复用的读取、写入和交叉链接流程。
 - [[可行性与边界]]：哪些部分值得做，哪些地方不能过度承诺。
 - [[研究切口与实验路线]]：最小可行论文/项目应该怎么做。
+- [[Harness VLA采用决策]]：区分 scientific baseline 与长期 codebase，并定义 RPent 的采用门。
+- [[问题定义与实验假设]]：主研究问题、failure taxonomy、可证伪假设、实验矩阵与最小 pilot。
 
 ## 核心概念
 
@@ -24,8 +26,8 @@
 - [[VLA路线]]：端到端 VLA、冻结 VLA primitive 与 Harness VLA 混合路线。
 - [[LLM规划与代码生成]]：SayCan、Inner Monologue、ProgPrompt、Code as Policies、VoxPoser、LRLL。
 - [[自进化代码Agent与评估器]]：Voyager、AlphaEvolve、Self-Harness、AHE 等“代码/harness + 反馈 + evaluator”范式。
-- [[安全验证与机器人DSL]]：NRTrans、SELP、SafePlan、LTLCodeGen、SAFER 等安全与形式化约束路线。
-- [[Benchmark与实验平台]]：LIBERO、CALVIN、RoboCasa/RoboCasa365、BEHAVIOR-1K、RoboLab 等。
+- [[安全验证与机器人DSL]]：NRTrans、VASO、SAFE、RoboCritics 等形式 contract 与 runtime monitor 路线。
+- [[Benchmark与实验平台]]：LIBERO/LIBERO-Recovery、vla-eval、mutation-guided hidden tests 与 Robot CI benchmark 设计。
 
 ## 论文与来源精读
 

@@ -48,6 +48,8 @@
 
 [InspectCoder](https://arxiv.org/abs/2510.18327) 进一步强调动态分析：让 LLM 主动设置断点、检查中间状态、逐步定位根因。
 
+[RepairAgent](https://arxiv.org/abs/2403.17134) 把 LLM 视为能自主交错信息收集、工具调用、repair ingredient 搜索和 patch validation 的 agent；[DebugRepair](https://arxiv.org/abs/2604.19305) 则进一步强调 purified failing context、intermediate runtime evidence 和 agent-directed instrumentation。二者共同支持本项目把 repair-agent token、probe、proposal 次数和验证成本独立记账。
+
 迁移到机器人时，对应的问题是：
 
 - 机器人系统能不能提供足够中间状态？
@@ -74,6 +76,14 @@
 机器人实验不能只检查 patch 通过了单元测试，还要检查高层 planner 是否实际调用新 fallback，以及系统级收益是否在 held-out task 上成立。
 
 [[Harness VLA]] 则提供了另一侧证据：固定 primitive 和冻结 VLA 仅通过 planner、memory、re-grounding 与重试也能显著提升。因此后续 code-repair 实验必须把这种 fixed-harness improvement 作为 baseline，避免把 memory 或 retry 收益误称为 skill 自进化。
+
+## 2026 年的直接近邻
+
+[ASPIRE](https://arxiv.org/abs/2607.00272) 已经把 robot execution engine、细粒度多模态 trace、program repair、validation、reusable skill guidance 与 evolutionary search 串成 continual learning loop。因此本项目不能再把“coding agent 根据机器人 trace 修程序并积累 skill”作为完整 novelty。
+
+[VASO](https://arxiv.org/abs/2606.05395) 已经把 model-checker counterexample 转成 textual gradient，更新冻结 foundation model 之外的 reusable semantic skill contract。这也意味着“verifier-guided self-evolving skill”本身不是空白。
+
+当前可检验的剩余切口是：在 RPent/[[Harness VLA]] 的 hybrid VLA harness 中，针对跨任务共享的既有 implementation，隔离 `allow_code_edit` 的增量效应，并用 hidden regression/safety gate 判断 patch 是否可部署。完整 novelty 假设与推翻条件见 [[问题定义与实验假设]]。
 
 ## 机器人 evaluator 的特殊性
 

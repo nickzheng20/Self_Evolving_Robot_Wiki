@@ -34,6 +34,8 @@
 
 [[voxposer-2307.05973.pdf|VoxPoser]] 更进一步：让 LLM/VLM 组合 3D value maps，再由 model-based planner 生成轨迹。它说明 LLM 写代码不一定要直接输出动作，也可以生成中间表示，让传统 planner 接管低层物理执行。
 
+[ASPIRE](https://arxiv.org/abs/2607.00272) 已经把 code-as-policy 推进到 agentic program repair：execution engine 暴露 per-primitive multimodal traces，coding agent 诊断、改写并验证 task program，再把有效修复压缩成可检索的 skill guidance，并用 evolutionary search 扩大程序候选。它是本项目当前最直接的机器人代码生成近邻。
+
 ## Lifelong skill library
 
 [Lifelong Robot Library Learning](https://arxiv.org/abs/2406.18746) 与本项目非常接近：它让 LLM-based agent 持续增长 robot skill library，避免固定 skill 库限制任务范围。
@@ -64,4 +66,4 @@
 
 > 当 skill 在物理执行中失败后，系统如何定位失败原因、提出代码 patch、验证 patch、避免 regression，并把修复沉淀进可长期维护的 skill library。
 
-这就是 [[执行反馈自调试]] 的核心。
+由于 ASPIRE 已覆盖宽泛的“trace → robot program repair → reusable guidance”，这里还要进一步限定为：修复 frozen VLA harness 中跨任务共享、已有版本的 skill implementation，并用 plan/memory-only 对照、hidden cross-task regression 和 safety gate 证明增量。详细边界见 [[问题定义与实验假设]]。

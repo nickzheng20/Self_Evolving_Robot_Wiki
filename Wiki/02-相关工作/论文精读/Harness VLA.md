@@ -8,10 +8,16 @@
 - 作者：Yixian Zhang、Huanming Zhang 等
 - 版本：arXiv v3，2026-07-15
 - 本地 PDF：[[harness-vla-2607.08448.pdf|本地 PDF]]
-- 链接：[arXiv:2607.08448](https://arxiv.org/abs/2607.08448)；[项目主页](https://harnessvla.github.io/)
+- 链接：[arXiv:2607.08448](https://arxiv.org/abs/2607.08448)；[项目主页](https://harnessvla.github.io/)；[公开实现 RPent](https://github.com/RLinf/RPent)
 - 角色：[[VLA路线]] 与 [[机器人Harness工程]] 的直接交叉工作；也是 [[研究切口与实验路线]] 必须加入的 fixed-harness baseline。
 
 ![[harness-vla-2607.08448.pdf#page=1]]
+
+## 公开实现状态
+
+截至 2026-07-29，Harness VLA 就是 [RPent](https://github.com/RLinf/RPent) 的首个论文系统；项目页的 Code 按钮直接指向 RPent，而不是另一套同名仓库。更准确地说，RPent 是框架/codebase，Harness VLA 是其中“冻结 VLA + 固定 primitive + memory-guided planner”的已发表方法与实验配置。当前公开仓库的完整参考路径主要是 Pi0.5 + LIBERO-Pro；RoboCasa、Franka、SO-101 仍在研发中，论文中的 RoboCasa365/RLDX-1 路径尚未形成同等完整的公开实现。
+
+仓库仍处于 `0.0.0` / pre-alpha 阶段，且根目录没有实际 `LICENSE` 文件；memory 又通过 [RLinf/RPent-memory](https://huggingface.co/datasets/RLinf/RPent-memory) 在每次运行时同步最新版本。因此它可以立即作为研究 spike 和 fixed-harness 实现候选，但不能把滚动 `main` 直接等同于可复现 baseline 或长期主 codebase。具体采用门与双轨方案见 [[Harness VLA采用决策]]。
 
 ## 一句话版
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Source/Papers/Harness Engineering for Self-Improvement.md",
+                "file": "Wiki/01-核心概念/执行反馈自调试.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Harness Engineering for Self-Improvement"
+              "title": "执行反馈自调试"
             }
           },
           {
@@ -197,16 +197,21 @@
   },
   "active": "3a85772cc84fada9",
   "lastOpenFiles": [
+    "Wiki/03-研究判断/问题定义与实验假设.md",
+    "Wiki/03-研究判断/Harness VLA采用决策.md",
+    "Wiki/01-核心概念/机器人Harness工程.md",
+    "index.md",
+    "LLM Wiki.md",
+    "AGENTS.md",
+    "Source/Papers/Harness Engineering for Self-Improvement.md",
     "Wiki/02-相关工作/论文精读/Harness Engineering for Self-Improvement - 综述解读.md",
     "Wiki/02-相关工作/论文精读/Harness VLA.md",
     "Wiki/02-相关工作/自进化代码Agent与评估器.md",
     "Wiki/01-核心概念/核心架构.md",
-    "Wiki/01-核心概念/机器人Harness工程.md",
     "Wiki/01-核心概念/执行反馈自调试.md",
     "Wiki/01-核心概念/Robot CI-CD与安全门.md",
     "Wiki/00-总览/项目概览.md",
     "Wiki/00-总览/论文入库工作流.md",
-    "Source/Papers/Harness Engineering for Self-Improvement.md",
     "tmp/paper_texts/harness-vla-2607.08448.txt",
     "Source/Papers/harness-vla-2607.08448.pdf",
     "Source/Papers/code-as-policies-2209.07753.pdf",
@@ -220,8 +225,6 @@
     "Source/Papers/alphaevolve-2506.13131.pdf",
     "Sources",
     "Source/Literature/资料与论文清单.md",
-    "AGENTS.md",
-    "index.md",
     "Wiki/02-相关工作/VLA路线.md",
     "Wiki/02-相关工作/相关工作地图.md",
     "Wiki/02-相关工作/安全验证与机器人DSL.md",
@@ -232,9 +235,6 @@
     "Wiki/02-相关工作/论文精读/NRTrans.md",
     "Wiki/02-相关工作/论文精读/RT-2.md",
     "Wiki/02-相关工作/论文精读/VoxPoser.md",
-    "Wiki/02-相关工作/论文精读/OpenVLA.md",
-    "Wiki/02-相关工作/论文精读/RoboCasa.md",
-    "Wiki/02-相关工作/论文精读/Voyager.md",
     "Source/Papers/voyager-2305.16291.pdf"
   ]
 }

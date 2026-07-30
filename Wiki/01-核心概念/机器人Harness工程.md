@@ -22,7 +22,7 @@ Harness 不是单个 prompt，也不是某个 agent framework 的名字。它是
 | 改进对象 | 例子 | 优点 | 主要风险 |
 | --- | --- | --- | --- |
 | 模型权重 | VLA fine-tuning、RL、continual learning | 能学习难以手写的感知与接触控制 | 数据和算力高、难归因、易遗忘 |
-| Skill 实现 | 几何计算、fallback、pre/postcondition、success detector | 局部、可解释、可测试、可回滚 | 只能修复可代码化失败 |
+| Skill 实现 | 几何计算、fallback、pre/postcondition、skill-local monitor | 局部、可解释、可测试、可回滚 | 只能修复可代码化失败 |
 | Harness | context、tool schema、workflow、memory policy、middleware | 可改善长时序组织、诊断和工具使用 | 编辑面更大，容易 reward hack 或破坏抽象边界 |
 
 本项目当前最可验证的主目标是第二类，必要时只开放少量第三类 surface。第一类可以作为 learned skill 的独立训练路线，但不应和代码修复同时变化，否则实验难以归因。
@@ -65,7 +65,7 @@ flowchart TB
 
 - planner system prompt 和全局 tool description。
 - middleware、超时、重试与 primitive serialization。
-- success detector 和 benchmark adapter。
+- 跨任务共享的 runtime completion detector。
 - 跨 skill 的共享 perception 或 world-state code。
 
 这些修改可能同时影响大量任务，必须使用更宽的 held-out regression suite 和人工审查。
@@ -73,7 +73,7 @@ flowchart TB
 ### 默认只读面
 
 - tracer 原始记录和历史评估结果。
-- verifier、held-out tests 与评分聚合逻辑。
+- 外部 success predicate、benchmark adapter、verifier、held-out tests 与评分聚合逻辑。
 - 模型身份、推理预算和工具权限。
 - 速度、力、碰撞、关节限制、工作空间和急停。
 - 真实机器人部署审批与 rollback controller。
