@@ -8,16 +8,24 @@
 - 作者：Yixian Zhang、Huanming Zhang 等
 - 版本：arXiv v3，2026-07-15
 - 本地 PDF：[[harness-vla-2607.08448.pdf|本地 PDF]]
-- 链接：[arXiv:2607.08448](https://arxiv.org/abs/2607.08448)；[项目主页](https://harnessvla.github.io/)；[公开实现 RPent](https://github.com/RLinf/RPent)
+- 链接：[arXiv:2607.08448](https://arxiv.org/abs/2607.08448)；[项目主页](https://harnessvla.github.io/)；[官方实现 RPent](https://github.com/RLinf/RPent)；[实现文档](https://rpent.readthedocs.io/en/latest/)
 - 角色：[[VLA路线]] 与 [[机器人Harness工程]] 的直接交叉工作；也是 [[研究切口与实验路线]] 必须加入的 fixed-harness baseline。
 
 ![[harness-vla-2607.08448.pdf#page=1]]
 
-## 公开实现状态
+## 公开实现状态（截至 2026-07-29）
 
-截至 2026-07-29，Harness VLA 就是 [RPent](https://github.com/RLinf/RPent) 的首个论文系统；项目页的 Code 按钮直接指向 RPent，而不是另一套同名仓库。更准确地说，RPent 是框架/codebase，Harness VLA 是其中“冻结 VLA + 固定 primitive + memory-guided planner”的已发表方法与实验配置。当前公开仓库的完整参考路径主要是 Pi0.5 + LIBERO-Pro；RoboCasa、Franka、SO-101 仍在研发中，论文中的 RoboCasa365/RLDX-1 路径尚未形成同等完整的公开实现。
+核心判断：Harness VLA 已有可运行的官方实现，不再需要完全按论文重建；但 RPent 仍标为 pre-alpha，当前真正适合作为起点的是 `LIBERO-Pro + Pi0.5` 路径，而不是 RoboCasa 或真实机器人。更准确地说，RPent 是框架/codebase，Harness VLA 是其中“冻结 VLA + 固定 primitive + memory-guided planner”的首个论文系统与 fixed-harness 实验配置。
 
-仓库仍处于 `0.0.0` / pre-alpha 阶段，且根目录没有实际 `LICENSE` 文件；memory 又通过 [RLinf/RPent-memory](https://huggingface.co/datasets/RLinf/RPent-memory) 在每次运行时同步最新版本。因此它可以立即作为研究 spike 和 fixed-harness 实现候选，但不能把滚动 `main` 直接等同于可复现 baseline 或长期主 codebase。具体采用门与双轨方案见 [[Harness VLA采用决策]]。
+- **已有证据**：[RPent 功能矩阵](https://github.com/RLinf/RPent#feature-matrix)目前明确标记可用的是三类 planner、Pi0.5 和 LIBERO-Pro；RLDX-1、RoboCasa、Franka 与 SO-101 仍未标为完成或处于 rolling-in 状态。
+- **已有证据**：当前 CLI 只开放 `libero` 环境。因此论文中的 RoboCasa365 与 RoboTwin 结果不能被视为已经随公开仓库提供了可复现实现。
+- **已有证据**：[安装文档](https://rpent.readthedocs.io/en/latest/rst_source/installation.html)要求 Linux、NVIDIA GPU、CUDA 12.x 与 Python 3.10–3.11。`.[full]` 会安装 RLinf、OpenPI、LIBERO-Pro 和 SAM3；官方没有给出确定的最低显存数字，[相关 issue](https://github.com/RLinf/RPent/issues/21) 目前也仍在等待维护者回答。
+- **已有证据**：[Quick Start](https://rpent.readthedocs.io/en/latest/rst_source/quickstart.html)会保存 `transcript_*.json`、`states.json`、`recipe_*.jsonl` 和 `episode.mp4`，这些正好可以作为 failure trace 与 repair evaluator 的初始数据面。
+- **已有证据**：[Memory 文档](https://rpent.readthedocs.io/en/latest/rst_source/development/memory.html)把 per-task recipe 与跨任务 failure rule 分开，并把公开 memory corpus 作为只读参考同步。第一版 code-repair 实验不应同时修改这部分，否则无法区分 memory 与代码修改的收益。
+- **尚未确认**：仓库根目录目前没有可读取的 `LICENSE` 文件，而 `pyproject.toml` 引用了它；Pi0.5 checkpoint 页面也没有 model card/license metadata，SAM3 checkpoint 则需要同意单独条款。内部复现实验可以先推进，但在发布 fork、派生代码或 benchmark 前必须逐项确认许可状态。
+- **合理推断**：由于仓库刚发布、版本号仍为 `0.0.0`，复现时必须固定 commit SHA、checkpoint、资产版本、planner/model 版本和 seed；否则后续接口变化会破坏对照。
+
+这意味着本项目不应先自行实现一套完整 Harness VLA。更高效的做法是把 RPent 作为冻结实验底座，只在清晰的 allowlist 内增加可测试、可回滚的 skill/monitor repair 层。由于仓库仍处于 `0.0.0` / pre-alpha、memory 会滚动同步且 artifact 尚未完全冻结，不能把滚动 `main` 直接等同于可复现 baseline 或长期主 codebase；具体采用门与双轨方案见 [[Harness VLA采用决策]]。
 
 ## 一句话版
 

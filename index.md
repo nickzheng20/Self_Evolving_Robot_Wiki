@@ -9,7 +9,7 @@
 - [[相关工作地图]]：把论文和资料按技术路线放到同一张地图里，并持续维护 ASPIRE/VASO 等直接近邻带来的 novelty 边界。
 - [[论文入库工作流]]：以后新增论文时复用的读取、写入和交叉链接流程。
 - [[可行性与边界]]：哪些部分值得做，哪些地方不能过度承诺。
-- [[研究切口与实验路线]]：最小可行论文/项目应该怎么做。
+- [[研究切口与实验路线]]：从 RPent/Harness VLA 复现到受限 primitive/monitor repair 的最小论文与实验路线。
 - [[Harness VLA采用决策]]：区分 scientific baseline 与长期 codebase，并定义 RPent 的采用门。
 - [[问题定义与实验假设]]：主研究问题、failure taxonomy、可证伪假设、实验矩阵与最小 pilot。
 
@@ -31,7 +31,7 @@
 
 ## 论文与来源精读
 
-- [[Harness VLA]]：冻结 VLA 作为可重试 contact primitive，配合 memory、解析控制和 planner re-grounding。
+- [[Harness VLA]]：冻结 VLA 作为可重试 contact primitive；包含官方 RPent 实现状态与复现边界。
 - [[Harness Engineering for Self-Improvement - 综述解读|Harness Engineering for Self-Improvement]]：harness 自改进综述，以及 observability、权限和 verifier 边界。
 - [[Wiki/02-相关工作/论文精读/Code as Policies]]：LLM 生成机器人 policy code，是 coding agent 写 skill 的直接前作。
 - [[Voyager]]：可执行代码 skill library、环境反馈和自验证的 lifelong agent。

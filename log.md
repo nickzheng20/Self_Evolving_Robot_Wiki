@@ -36,6 +36,12 @@
 - 更新 [[核心架构]]、[[执行反馈自调试]]、[[Robot CI-CD与安全门]]、[[VLA路线]]、[[自进化代码Agent与评估器]]、[[相关工作地图]]、[[可行性与边界]] 和 [[研究切口与实验路线]]。
 - 将 Harness VLA-style fixed harness 加入实验 baseline，防止把 memory、re-grounding 或 retry 的收益误称为 skill code evolution。
 
+## [2026-07-28] analysis | 固化从官方 RPent/Harness VLA 起步的实验路线
+
+- 确认 Harness VLA 官方代码入口为 [RPent](https://github.com/RLinf/RPent)，记录当前可运行主路径、Linux/CUDA 前置条件、trace artifacts、memory 只读边界和许可证待确认项。
+- 在 [[研究切口与实验路线]] 中加入四级起步闸门：官方 LIBERO-Pro smoke test、单解析 primitive repair、`pi0_pick` postcondition repair、等预算端到端验证。
+- 固化实验冻结变量、allowlist、四组核心对照和两周 go/no-go 标准，避免把额外 retry、预算放宽或 memory 更新误算为 code repair 收益。
+
 ## [2026-07-29] analysis | 评估 Harness VLA / RPent 作为 baseline 与 codebase
 
 - 审计 Harness VLA 项目页、RPent 公开仓库、外置 RPent-memory、Pi0.5 checkpoint、公开 issue/PR 和当前文档。
