@@ -41,7 +41,7 @@ LLM 写普通软件时，错误通常由测试捕获。机器人代码的错误�
 
 这些工作说明：高层任务计划可以先转成形式规格，再由 planner 执行。对本项目来说，形式规格可以成为 verifier 的一部分。
 
-[VASO](https://arxiv.org/abs/2606.05395) 把这条路线推进到 reusable skill evolution：每个 skill 同时有 planner-facing text interface 和 proposition-aligned formal interface；model checker 找到 temporal counterexample 后，把它转成 textual gradient 更新 semantic contract。它说明形式验证不仅能拒绝计划，也能生成修复证据。
+[[VASO]] 把这条路线推进到 reusable skill evolution：每个 skill 同时有 planner-facing text interface 和 proposition-aligned formal interface；model checker 找到 temporal counterexample 后，把它转成 textual gradient 更新 semantic contract。它说明形式验证不仅能拒绝计划，也能生成修复证据。
 
 但 VASO 也明确留下一个可信根问题：如果把连续机器人状态映射成 atomic propositions 的 labeling function 本身有错，形式保证会失效。因此本项目不能只说“用了 model checker 就安全”，还要把 state-to-proposition mapping、evaluator 和规格版本放入只读审计域。
 
@@ -51,13 +51,16 @@ LLM 写普通软件时，错误通常由测试捕获。机器人代码的错误�
 
 [SAFER](https://arxiv.org/abs/2503.15707) 使用 safety agent 和 Control Barrier Functions 来减少机器人任务规划中的安全违规。
 
-[SAFE](https://arxiv.org/abs/2506.09937) 说明可以从 VLA latent feature 学习跨任务 failure detector，并用 conformal prediction 控制检测阈值；[RoboCritics](https://arxiv.org/abs/2603.06842) 则用 motion-level expert critics 检查碰撞、速度和危险末端姿态，并把结构化反馈返回 LLM。
+[[SAFE]] 说明可以从 VLA latent feature 学习跨任务 failure detector，并用 conformal prediction 控制检测阈值；[[RoboCritics]] 则用 motion-level expert critics 检查碰撞、速度和危险末端姿态，并把结构化反馈返回 LLM。
 
 这些工作提醒我们：即使 skill 代码通过了静态检查和形式 contract，真实执行时仍需要独立 runtime failure/safety monitor；检测器和 critic 默认不能由 repair agent 编辑。
 
 ## 已精读页面
 
 - [[NRTrans]]：Robot Skill Language、compiler、debugger 和 feedback-based tuning。
+- [[VASO]]：形式化 skill contract、model checking 与 counterexample-guided evolution。
+- [[SAFE]]：跨任务 VLA failure monitor 与 conformal calibration。
+- [[RoboCritics]]：motion-level expert critics 和可读安全反馈。
 
 ## 本项目推荐的 DSL 粒度
 

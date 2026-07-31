@@ -32,6 +32,17 @@
 ## 论文与来源精读
 
 - [[Harness VLA]]：冻结 VLA 作为可重试 contact primitive；包含官方 RPent 实现状态与复现边界。
+- [[ASPIRE]]：多模态 primitive trace 驱动的机器人程序发现与闭环修复，是当前最直接的 novelty 对照。
+- [[VASO]]：model checking、counterexample 与 semantic skill contract 演化，是 formal verifier 路线的直接近邻。
+- [[HELM]]：episodic memory、状态验证与 rollback/replanning 构成强非代码恢复 baseline。
+- [[SAFE]]：从 VLA latent feature 做跨任务失败检测，并以 conformal prediction 校准触发阈值。
+- [[InSight]]：通过 steerable VLA 和数据飞轮补齐缺失低层技能，界定 policy-limited failure 的处理路线。
+- [[DebugRepair]]：用语义净化、主动 instrumentation 和中间运行态提升程序修复。
+- [[RepairAgent]]：自主工具调用、repair ingredient 搜索与 patch 验证的 agentic repair workflow。
+- [[STING]]：用 mutation-guided diagnosis 检测和增强薄弱 regression suite。
+- [[CI-Repair-Bench]]：以原始 CI workflow 验证 repository-level repair，启发完整 Robot CI gate。
+- [[vla-eval]]：隔离模型推理与 benchmark execution 的统一 VLA 评测 harness。
+- [[RoboCritics]]：以 motion-level expert critics 提供独立安全检查和结构化反馈。
 - [[Harness Engineering for Self-Improvement - 综述解读|Harness Engineering for Self-Improvement]]：harness 自改进综述，以及 observability、权限和 verifier 边界。
 - [[Wiki/02-相关工作/论文精读/Code as Policies]]：LLM 生成机器人 policy code，是 coding agent 写 skill 的直接前作。
 - [[Voyager]]：可执行代码 skill library、环境反馈和自验证的 lifelong agent。

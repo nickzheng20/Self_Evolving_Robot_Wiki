@@ -69,3 +69,10 @@
 - 统一第一阶段范围：4 个 code defects + 1 个 plan/memory control + 1 个 policy control 的 LIBERO-Pro pilot；外部 evaluator/truncation 聚合属于只读 `K`，只有 skill-local postcondition/monitor 属于可编辑 `W`。
 - 在 [[Harness VLA采用决策]] 记录 RPent 的实际首批代码落点 `robots/libero/tools.py` / `toolkit.py`，并增加第二 planner 与第二 repair model 的冻结后 robustness subset。
 - 明确当前新文献仅为摘要级待读登记；正式入库仍需下载 PDF、建立逐篇精读页并更新 index。
+
+## [2026-07-30] ingest | 正式入库 11 篇直接相关论文
+
+- 下载并核验 ASPIRE、VASO、HELM、DebugRepair、SAFE、STING、vla-eval、InSight、RepairAgent、RoboCritics 与 CI-Repair-Bench 的本地 PDF，共 226 页。
+- 新增 11 篇 PhD advisor 风格精读页，整理问题定义、方法结构、实验数字、局限以及对 RPent/[[Harness VLA]] 研究切口的影响。
+- 更新 `Source/Literature/资料与论文清单.md`、`index.md` 和相关主题页，把上一轮“摘要级待读”条目切换为本地 PDF 与 wiki 双链。
+- 用 PDF 元数据检查和逐篇首页渲染确认下载文件有效；保留 ASPIRE/VASO 作为 novelty audit 的最高优先级。

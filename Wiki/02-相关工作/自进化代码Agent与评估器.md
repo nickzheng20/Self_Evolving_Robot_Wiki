@@ -48,7 +48,7 @@
 
 [InspectCoder](https://arxiv.org/abs/2510.18327) 进一步强调动态分析：让 LLM 主动设置断点、检查中间状态、逐步定位根因。
 
-[RepairAgent](https://arxiv.org/abs/2403.17134) 把 LLM 视为能自主交错信息收集、工具调用、repair ingredient 搜索和 patch validation 的 agent；[DebugRepair](https://arxiv.org/abs/2604.19305) 则进一步强调 purified failing context、intermediate runtime evidence 和 agent-directed instrumentation。二者共同支持本项目把 repair-agent token、probe、proposal 次数和验证成本独立记账。
+[[RepairAgent]] 把 LLM 视为能自主交错信息收集、工具调用、repair ingredient 搜索和 patch validation 的 agent；[[DebugRepair]] 则进一步强调 purified failing context、intermediate runtime evidence 和 agent-directed instrumentation。二者共同支持本项目把 repair-agent token、probe、proposal 次数和验证成本独立记账。
 
 迁移到机器人时，对应的问题是：
 
@@ -79,9 +79,9 @@
 
 ## 2026 年的直接近邻
 
-[ASPIRE](https://arxiv.org/abs/2607.00272) 已经把 robot execution engine、细粒度多模态 trace、program repair、validation、reusable skill guidance 与 evolutionary search 串成 continual learning loop。因此本项目不能再把“coding agent 根据机器人 trace 修程序并积累 skill”作为完整 novelty。
+[[ASPIRE]] 已经把 robot execution engine、细粒度多模态 trace、program repair、validation、reusable skill guidance 与 evolutionary search 串成 continual learning loop。因此本项目不能再把“coding agent 根据机器人 trace 修程序并积累 skill”作为完整 novelty。
 
-[VASO](https://arxiv.org/abs/2606.05395) 已经把 model-checker counterexample 转成 textual gradient，更新冻结 foundation model 之外的 reusable semantic skill contract。这也意味着“verifier-guided self-evolving skill”本身不是空白。
+[[VASO]] 已经把 model-checker counterexample 转成 textual gradient，更新冻结 foundation model 之外的 reusable semantic skill contract。这也意味着“verifier-guided self-evolving skill”本身不是空白。
 
 当前可检验的剩余切口是：在 RPent/[[Harness VLA]] 的 hybrid VLA harness 中，针对跨任务共享的既有 implementation，隔离 `allow_code_edit` 的增量效应，并用 hidden regression/safety gate 判断 patch 是否可部署。完整 novelty 假设与推翻条件见 [[问题定义与实验假设]]。
 
@@ -114,3 +114,7 @@ unit tests
 - [[AlphaEvolve]]：evaluator 驱动的代码进化范式。
 - [[Harness Engineering for Self-Improvement - 综述解读|Harness Engineering for Self-Improvement]]：context、workflow、harness code 与 optimizer code 的自改进路线及可信边界。
 - [[Harness VLA]]：固定 primitive harness 如何在不改 VLA 权重或 skill 代码时提高机器人任务可靠性。
+- [[ASPIRE]]：机器人程序的 trace-driven repair、闭环验证和经验积累。
+- [[VASO]]：model-checker counterexample 驱动的 semantic skill contract 演化。
+- [[RepairAgent]]：自主信息收集、工具调用与 patch validation workflow。
+- [[DebugRepair]]：中间运行态和主动 instrumentation 对 repair 的价值。

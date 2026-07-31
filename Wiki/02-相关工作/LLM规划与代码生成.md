@@ -34,7 +34,7 @@
 
 [[voxposer-2307.05973.pdf|VoxPoser]] 更进一步：让 LLM/VLM 组合 3D value maps，再由 model-based planner 生成轨迹。它说明 LLM 写代码不一定要直接输出动作，也可以生成中间表示，让传统 planner 接管低层物理执行。
 
-[ASPIRE](https://arxiv.org/abs/2607.00272) 已经把 code-as-policy 推进到 agentic program repair：execution engine 暴露 per-primitive multimodal traces，coding agent 诊断、改写并验证 task program，再把有效修复压缩成可检索的 skill guidance，并用 evolutionary search 扩大程序候选。它是本项目当前最直接的机器人代码生成近邻。
+[[ASPIRE]] 已经把 code-as-policy 推进到 agentic program repair：execution engine 暴露 per-primitive multimodal traces，coding agent 诊断、改写并验证 task program，再把有效修复压缩成可检索的 skill guidance，并用 evolutionary search 扩大程序候选。它是本项目当前最直接的机器人代码生成近邻。
 
 ## Lifelong skill library
 
@@ -52,6 +52,7 @@
 - [[SayCan]]：任务大脑如何用 affordance/value function 约束 skill 选择。
 - [[Wiki/02-相关工作/论文精读/Code as Policies]]：LLM 生成 robot policy code 的直接参考。
 - [[VoxPoser]]：LLM/VLM 生成 3D value maps 并交给 planner。
+- [[ASPIRE]]：从 per-primitive multimodal trace 到 task-program repair、验证和 reusable guidance。
 
 ## 本项目要补的部分
 

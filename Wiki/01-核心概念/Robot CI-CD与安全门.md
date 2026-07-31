@@ -62,7 +62,7 @@ Patch proposal
 
 只在 held-in 上变好不能进入部署门。候选 patch 应同时报告预期修复和 at-risk regressions。
 
-测试通过也不等于测试充分。[STING](https://arxiv.org/abs/2604.01518) 用能穿过原 regression suite 的语义错误 patch variants 暴露欠约束行为，再生成针对性测试。对 Robot CI 的直接启发是：在正式评估前，用 deliberate mutants 和 ground-truth/oracle patch 检查 hidden suite 的 mutation score、false acceptance 和语义覆盖；不能把“现有测试全绿”直接当成正确修复。
+测试通过也不等于测试充分。[[STING]] 用能穿过原 regression suite 的语义错误 patch variants 暴露欠约束行为，再生成针对性测试。对 Robot CI 的直接启发是：在正式评估前，用 deliberate mutants 和 ground-truth/oracle patch 检查 hidden suite 的 mutation score、false acceptance 和语义覆盖；不能把“现有测试全绿”直接当成正确修复。
 
 ### 5. 安全验证
 
@@ -72,8 +72,8 @@ Patch proposal
 - 形式逻辑：参考 [SELP](https://arxiv.org/abs/2409.19471)、[SafePlan](https://arxiv.org/abs/2503.06892)、[LTLCodeGen](https://arxiv.org/abs/2503.07902)。
 - 可达性分析：参考 [Safe LLM-Controlled Robots with Formal Guarantees via Reachability Analysis](https://arxiv.org/abs/2503.03911)。
 - 控制屏障函数：参考 [SAFER](https://arxiv.org/abs/2503.15707)。
-- skill contract 的 model checking：参考 [VASO](https://arxiv.org/abs/2606.05395)，把 temporal-spec counterexample 转成可读修复反馈；但其 proposition mapping 本身也必须审计。
-- motion-level expert critics：参考 [RoboCritics](https://arxiv.org/abs/2603.06842)，独立检查碰撞、速度和危险末端位姿。
+- skill contract 的 model checking：参考 [[VASO]]，把 temporal-spec counterexample 转成可读修复反馈；但其 proposition mapping 本身也必须审计。
+- motion-level expert critics：参考 [[RoboCritics]]，独立检查碰撞、速度和危险末端位姿。
 
 ### 6. 小范围真实机器人测试
 
@@ -105,7 +105,7 @@ Patch proposal
 
 这样机器人 skill library 才像真正的软件系统，而不是一堆 prompt 生成的脚本。
 
-完整验证应按 repository/artifact 级别运行，而不只执行被修改函数的 unit test。[CI-Repair-Bench](https://arxiv.org/abs/2604.27148) 的启发是保留原环境与多阶段 workflow，验证依赖、配置、runtime 和 evaluator adapter；对 RPent 来说，这意味着 container、model/memory revision、planner prompt、timeout/truncation 规则也属于可重放的 CI artifact。
+完整验证应按 repository/artifact 级别运行，而不只执行被修改函数的 unit test。[[CI-Repair-Bench]] 的启发是保留原环境与多阶段 workflow，验证依赖、配置、runtime 和 evaluator adapter；对 RPent 来说，这意味着 container、model/memory revision、planner prompt、timeout/truncation 规则也属于可重放的 CI artifact。
 
 ## 本项目的原则
 

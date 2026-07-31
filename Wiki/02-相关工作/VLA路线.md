@@ -22,17 +22,20 @@
 
 [[Harness VLA]] 走了不同方向：不再要求 VLA 端到端承担整条轨迹，而是把冻结 VLA 封装成 `VLA_ACT` 接触丰富 primitive，由 agentic planner、两类 memory 和解析 primitive 负责语义重绑定、空间 staging、重试、运输与释放。论文在不微调 VLA 的情况下报告 LIBERO-Pro 82.4%、RoboCasa365 加权 55.4% 和 RoboTwin C2R 58.4% 的最好配置，说明部署可靠性也可以来自模型外的 [[机器人Harness工程|harness]]。
 
-[HELM](https://arxiv.org/abs/2604.18791) 同样不以改 VLA 权重为中心，而是加入 episodic memory、learned state verifier 和 rollback/replanning，并提出 LIBERO-Recovery controlled perturbation protocol。它代表必须纳入的强非代码恢复解释：很多长时序失败可能通过更好的 memory、检测和恢复解决，而不需要持久代码修改。
+[[HELM]] 同样不以改 VLA 权重为中心，而是加入 episodic memory、learned state verifier 和 rollback/replanning，并提出 LIBERO-Recovery controlled perturbation protocol。它代表必须纳入的强非代码恢复解释：很多长时序失败可能通过更好的 memory、检测和恢复解决，而不需要持久代码修改。
 
-[SAFE](https://arxiv.org/abs/2506.09937) 从 VLA 内部特征学习跨任务 failure score，说明 monitor 可以作为 VLA 外挂组件；但 failure detection 与 failure attribution 必须分开评估。
+[[SAFE]] 从 VLA 内部特征学习跨任务 failure score，说明 monitor 可以作为 VLA 外挂组件；但 failure detection 与 failure attribution 必须分开评估。
 
-[InSight](https://arxiv.org/abs/2606.24884) 代表另一条边界路线：把 demonstrations 切成可 steer 的 primitives，再通过 data flywheel 获取缺失技能。当正确 wrapper、staging 和 plan 都无法让冻结 VLA 完成新接触模式时，应把问题归为 policy-limited，转向数据与权重更新，而不是制造伪代码修复。
+[[InSight]] 代表另一条边界路线：把 demonstrations 切成可 steer 的 primitives，再通过 data flywheel 获取缺失技能。当正确 wrapper、staging 和 plan 都无法让冻结 VLA 完成新接触模式时，应把问题归为 policy-limited，转向数据与权重更新，而不是制造伪代码修复。
 
 ## 已精读页面
 
 - [[RT-2]]：动作 token 化和 web-scale VLM 知识迁移到控制。
 - [[OpenVLA]]：开源 7B VLA、Open X-Embodiment 训练和高效微调。
 - [[Harness VLA]]：冻结 VLA 作为可重试 contact primitive，配合解析控制、memory 和 planner re-grounding。
+- [[HELM]]：episodic memory、状态验证和 rollback/replanning 的强非代码恢复路线。
+- [[SAFE]]：VLA latent feature 上的跨任务 failure monitor 与阈值校准。
+- [[InSight]]：用 steerable primitives 和 data flywheel 获取 policy 层缺失技能。
 
 ## VLA 的强项
 

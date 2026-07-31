@@ -16,16 +16,20 @@
 
 [RoboLab](https://arxiv.org/abs/2604.09860) 强调对 task-generalist policy 做高保真仿真分析和受控扰动测试，适合构建 regression suite。
 
-[HELM](https://arxiv.org/abs/2604.18791) 提出的 LIBERO-Recovery 在长时序任务的 subgoal boundary 注入物体位移或 gripper-state flip，并测最终 recovery success。它适合作为 controlled perturbation 模板，但本项目还需加入 implementation defects，并区分“当场恢复”与“持久 patch 后跨任务恢复”。
+[[HELM]] 提出的 LIBERO-Recovery 在长时序任务的 subgoal boundary 注入物体位移或 gripper-state flip，并测最终 recovery success。它适合作为 controlled perturbation 模板，但本项目还需加入 implementation defects，并区分“当场恢复”与“持久 patch 后跨任务恢复”。
 
 [robosuite](https://arxiv.org/abs/2009.12293) 更轻量，适合早期 proof-of-concept。
 
-[vla-eval](https://arxiv.org/abs/2603.13966) 通过隔离 model inference 与 benchmark execution 统一多种 VLA/仿真协议，可用于冻结 evaluator artifact、并行运行 final-blind episodes，并减少不同代码库预处理和依赖造成的比较偏差。
+[[vla-eval]] 通过隔离 model inference 与 benchmark execution 统一多种 VLA/仿真协议，可用于冻结 evaluator artifact、并行运行 final-blind episodes，并减少不同代码库预处理和依赖造成的比较偏差。
 
 ## 已精读页面
 
 - [[LIBERO]]：适合测试 lifelong、forward transfer、backward transfer 和 regression。
 - [[RoboCasa]]：适合厨房日常任务、仿真扰动和真实机器人迁移。
+- [[HELM]]：LIBERO-Recovery 的受控扰动与长时序恢复协议。
+- [[vla-eval]]：隔离模型和 benchmark execution 的统一评测 harness。
+- [[STING]]：用 mutation testing 诊断 hidden regression suite 是否充分。
+- [[CI-Repair-Bench]]：在原始多阶段 CI workflow 中验证 repository-level repair。
 
 ## 推荐 MVP 场景
 
@@ -75,7 +79,7 @@ Direct VLA、Code as Policies/ASPIRE-style task-program generation 和 learned-p
 
 ## Benchmark 验收本身也要测试
 
-[STING](https://arxiv.org/abs/2604.01518) 说明弱 regression suite 会接受语义错误 patch；[CI-Repair-Bench](https://arxiv.org/abs/2604.27148) 则强调 repository-level repair 应在原始、多阶段 workflow 中重跑。因此本项目发布 benchmark 前，应：
+[[STING]] 说明弱 regression suite 会接受语义错误 patch；[[CI-Repair-Bench]] 则强调 repository-level repair 应在原始、多阶段 workflow 中重跑。因此本项目发布 benchmark 前，应：
 
 - 用 deliberate mutants 测 hidden suite 能否杀死 plausible-but-wrong patches；
 - 把 clean/oracle patch、impact seeds、gate seeds 和 final-blind seeds 分离；
